@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+<body onload="onLoad()">
+    <div id="log"></div>
+    <canvas id="canvas" width="400" height="100"></canvas><br>
+    <script type="text/javascript">
+            var jsilConfig = {
+                printStackTrace: false,
+                libraryRoot: "./packages/JSIL/Libraries/",
+                scriptRoot: "./ConsoleApplication1/bin/Debug/",
+                manifests: [
+                    "./ConsoleApplication1/bin/Debug/ConsoleApplication1.exe",
+                ],
+            };
+    </script>
+    <script src="./packages/JSIL/Libraries/JSIL.js" type="text/javascript"></script>
+    <script type="text/javascript">
+            function runMain() {
+                var asm = JSIL.GetAssembly("ConsoleApplication1", true);
+                JSIL.InvokeEntryPoint(asm, []);
+            };
+    </script>
+</body>
+</html>
